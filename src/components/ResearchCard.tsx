@@ -30,39 +30,41 @@ export const ResearchCard = ({ title, type, link, status, description, datePubli
                     {iconMap[type]}
                 </div>
                 <div className="flex-1 min-w-0">
-                    <div className="mb-1 flex flex-wrap items-center justify-between gap-2">
+                    <div className="mb-1 flex items-start justify-between gap-4">
                         <h3
                             className="text-lg font-semibold tracking-[-0.01em]"
                             style={{ color: 'var(--foreground)' }}
                         >
                             {title}
                         </h3>
-                        <div className="flex items-center gap-2 shrink-0">
-                            {status && (
-                                <span
-                                    className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium uppercase tracking-wider text-white"
-                                    style={{
-                                        background: 'linear-gradient(135deg, #36565F, #5F8190)',
-                                        fontFamily: 'var(--font-jetbrains)',
-                                    }}
-                                >
-                                    <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse-dot" />
-                                    {status}
-                                </span>
-                            )}
-                            {datePublished && (
-                                <span
-                                    className="rounded-full px-3 py-1 text-xs font-medium"
-                                    style={{
-                                        background: 'var(--muted)',
-                                        color: 'var(--accent)',
-                                        fontFamily: 'var(--font-jetbrains)',
-                                    }}
-                                >
-                                    {datePublished}
-                                </span>
-                            )}
-                        </div>
+                        {(status || datePublished) && (
+                            <div className="flex items-center gap-2 shrink-0 mt-0.5">
+                                {status && (
+                                    <span
+                                        className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium uppercase tracking-wider text-white"
+                                        style={{
+                                            background: 'linear-gradient(135deg, #36565F, #5F8190)',
+                                            fontFamily: 'var(--font-jetbrains)',
+                                        }}
+                                    >
+                                        <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse-dot" />
+                                        {status}
+                                    </span>
+                                )}
+                                {datePublished && (
+                                    <span
+                                        className="rounded-full px-3 py-1 text-xs font-medium"
+                                        style={{
+                                            background: 'var(--muted)',
+                                            color: 'var(--accent)',
+                                            fontFamily: 'var(--font-jetbrains)',
+                                        }}
+                                    >
+                                        {datePublished}
+                                    </span>
+                                )}
+                            </div>
+                        )}
                     </div>
                     {description && (
                         <p className="mb-2 text-sm leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
