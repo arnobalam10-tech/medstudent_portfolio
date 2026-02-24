@@ -10,7 +10,9 @@ interface TabsProps {
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export const Tabs = ({ tabs }: TabsProps) => {
-    const [activeTab, setActiveTab] = useState(tabs[0].id);
+    const [activeTab, setActiveTab] = useState(tabs[0]?.id || '');
+
+    if (!tabs || tabs.length === 0) return null;
 
     return (
         <div className="w-full">
