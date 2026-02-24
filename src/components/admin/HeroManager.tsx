@@ -462,6 +462,49 @@ export const HeroManager = ({ initialData, onUpdate }: HeroManagerProps) => {
                     ))}
                 </div>
             </GlassCard>
+
+            {/* Footer Customization */}
+            <GlassCard>
+                <h4 className="text-lg font-semibold mb-4 text-[var(--color-jet-black)]">Footer Customization</h4>
+                <div className="grid gap-4 md:grid-cols-2">
+                    <div>
+                        <label className={labelClass}>Section Label</label>
+                        <input
+                            value={formData.footer_label || ''}
+                            onChange={(e) => handleChange('footer_label', e.target.value)}
+                            className={inputClass}
+                            placeholder="e.g. Get in Touch"
+                        />
+                    </div>
+                    <div>
+                        <label className={labelClass}>Heading</label>
+                        <input
+                            value={formData.footer_heading || ''}
+                            onChange={(e) => handleChange('footer_heading', e.target.value)}
+                            className={inputClass}
+                            placeholder="e.g. Let's Connect"
+                        />
+                    </div>
+                    <div className="md:col-span-2">
+                        <label className={labelClass}>Description</label>
+                        <textarea
+                            value={formData.footer_description || ''}
+                            onChange={(e) => handleChange('footer_description', e.target.value)}
+                            className={`${inputClass} h-20 resize-none`}
+                            placeholder="A short message about connecting..."
+                        />
+                    </div>
+                    <div className="md:col-span-2">
+                        <label className={labelClass}>Copyright Text</label>
+                        <input
+                            value={formData.footer_copyright || ''}
+                            onChange={(e) => handleChange('footer_copyright', e.target.value)}
+                            className={inputClass}
+                            placeholder="e.g. All rights reserved. (Leave empty for default)"
+                        />
+                    </div>
+                </div>
+            </GlassCard>
         </div>
     );
 };

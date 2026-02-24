@@ -17,7 +17,16 @@ export const Footer = () => {
     // Contact info from DB
     const contact = data?.contact || {};
     const email = contact.email || '';
-    const linkedin = contact.linkedin || '';
+    const rawLinkedin = contact.linkedin || '';
+
+    // Normalize URL
+    const linkedin = rawLinkedin && !rawLinkedin.startsWith('http') ? `https://${rawLinkedin}` : rawLinkedin;
+
+    // Footer text from hero_settings
+    const footerLabel = data?.hero?.footer_label || 'Get in Touch';
+    const footerHeading = data?.hero?.footer_heading || "Let's Connect";
+    const footerDescription = data?.hero?.footer_description || "I'm always open to discussing research collaborations, medical insights, or professional opportunities.";
+    const footerCopyright = data?.hero?.footer_copyright || `© ${new Date().getFullYear()} ${data?.hero?.name || 'Nafisa Alam'}. All rights reserved.`;
 
     // Build quick links based on visible sections that also have data
     const quickLinks = [
@@ -27,7 +36,6 @@ export const Footer = () => {
         ...(isVisible('awards') && data?.awards?.length > 0 ? [{ name: 'Awards', href: '#awards' }] : []),
         ...(isVisible('extracurriculars') && data?.extracurriculars?.length > 0 ? [{ name: 'Activities', href: '#volunteering' }] : []),
     ];
-
     const heroName = data?.hero?.name || 'Nafisa Alam';
 
     return (
@@ -68,7 +76,7 @@ export const Footer = () => {
                                     className="text-xs uppercase tracking-[0.15em]"
                                     style={{ fontFamily: 'var(--font-jetbrains)', color: '#E2F0F0' }}
                                 >
-                                    Get in Touch
+                                    {footerLabel}
                                 </span>
                             </div>
 
@@ -76,21 +84,36 @@ export const Footer = () => {
                                 className="mb-6 text-3xl md:text-[3.25rem] leading-[1.15]"
                                 style={{ fontFamily: 'var(--font-calistoga)', color: '#FFFFFF' }}
                             >
-                                Let&apos;s{' '}
-                                <span
-                                    style={{
-                                        background: 'linear-gradient(to right, #5F8190, #E2F0F0)',
-                                        WebkitBackgroundClip: 'text',
-                                        backgroundClip: 'text',
-                                        color: 'transparent',
-                                    }}
-                                >
-                                    Connect
-                                </span>
+                                {footerHeading.includes(' ') ? (
+                                    <>
+                                        {footerHeading.split(' ').slice(0, -1).join(' ')}{' '}
+                                        <span
+                                            style={{
+                                                background: 'linear-gradient(to right, #5F8190, #E2F0F0)',
+                                                WebkitBackgroundClip: 'text',
+                                                backgroundClip: 'text',
+                                                color: 'transparent',
+                                            }}
+                                        >
+                                            {footerHeading.split(' ').slice(-1)[0]}
+                                        </span>
+                                    </>
+                                ) : (
+                                    <span
+                                        style={{
+                                            background: 'linear-gradient(to right, #5F8190, #E2F0F0)',
+                                            WebkitBackgroundClip: 'text',
+                                            backgroundClip: 'text',
+                                            color: 'transparent',
+                                        }}
+                                    >
+                                        {footerHeading}
+                                    </span>
+                                )}
                             </h2>
 
                             <p className="mb-10 max-w-sm text-base leading-relaxed" style={{ color: 'rgba(226,240,240,0.7)' }}>
-                                I&apos;m always open to discussing research collaborations, medical insights, or professional opportunities.
+                                {footerDescription}
                             </p>
 
                             {/* Contact Links */}
@@ -192,7 +215,7 @@ export const Footer = () => {
                                     color: 'rgba(226,240,240,0.4)',
                                 }}
                             >
-                                © {new Date().getFullYear()} {heroName}. All rights reserved.
+                                {footerCopyright}
                             </div>
                         </div>
                     </div>
