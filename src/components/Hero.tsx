@@ -32,11 +32,18 @@ export default function Hero({ heroData }: HeroProps) {
     const firstName = nameParts.slice(0, -1).join(' ');
     const lastName = nameParts[nameParts.length - 1];
 
+    // Normalize URLs — prepend https:// if missing
+    const normalizeUrl = (url: string) => {
+        if (!url) return url;
+        if (url.startsWith('http://') || url.startsWith('https://')) return url;
+        return `https://${url}`;
+    };
+
     const socials = [
-        { icon: <Facebook size={18} />, url: socialFacebook },
-        { icon: <Instagram size={18} />, url: socialInstagram },
-        { icon: <Twitter size={18} />, url: socialTwitter },
-        { icon: <Linkedin size={18} />, url: socialLinkedin },
+        { icon: <Facebook size={18} />, url: normalizeUrl(socialFacebook) },
+        { icon: <Instagram size={18} />, url: normalizeUrl(socialInstagram) },
+        { icon: <Twitter size={18} />, url: normalizeUrl(socialTwitter) },
+        { icon: <Linkedin size={18} />, url: normalizeUrl(socialLinkedin) },
     ].filter(s => s.url);
 
     return (
