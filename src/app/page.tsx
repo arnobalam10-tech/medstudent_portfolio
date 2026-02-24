@@ -69,7 +69,8 @@ export default function Home() {
   const scholarships = data.awards.filter((a: any) => a.type === 'Scholarship');
 
   // Extracurriculars sub-categories
-  const volunteering = data.extracurriculars.filter((e: any) => e.category === 'Volunteering' || e.category === 'Leadership');
+  const volunteering = data.extracurriculars.filter((e: any) => e.category === 'Volunteering');
+  const leadership = data.extracurriculars.filter((e: any) => e.category === 'Leadership');
   const otherActivities = data.extracurriculars.filter((e: any) => e.category === 'Other');
 
   return (
@@ -333,6 +334,13 @@ export default function Home() {
                   label: 'Volunteering',
                   content: (
                     <VolunteeringShowcase items={volunteering} />
+                  )
+                }] : []),
+                ...(leadership.length > 0 ? [{
+                  id: 'leadership',
+                  label: 'Leadership',
+                  content: (
+                    <VolunteeringShowcase items={leadership} />
                   )
                 }] : []),
                 ...(otherActivities.length > 0 ? [{
