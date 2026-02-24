@@ -6,10 +6,12 @@ import { Heart } from "lucide-react";
 
 interface VolunteeringItemProps {
     title: string;
-    organization: string;
+    organization?: string;
+    category?: string;
     description: string;
     image?: string;
-    index: number;
+    image_url?: string;
+    index?: number;
 }
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -50,7 +52,7 @@ export const VolunteeringShowcase = ({ items }: { items: VolunteeringItemProps[]
                                     className="text-xs uppercase tracking-[0.12em] font-medium"
                                     style={{ color: 'var(--accent)', fontFamily: 'var(--font-jetbrains)' }}
                                 >
-                                    Volunteering
+                                    {item.category || 'Volunteering'}
                                 </span>
                             </div>
 
