@@ -15,7 +15,7 @@ export const AcademicManager = ({ initialData = [], onUpdate }: AcademicFormProp
     const [loading, setLoading] = useState(false);
 
     const handleAdd = () => {
-        setItems([...items, { institution: '', degree: '', graduation_year: '', details: '' }]);
+        setItems([...items, { institution: '', degree: '', graduation_year: '', date_range: '', details: '' }]);
     };
 
     const handleSave = async (index: number) => {
@@ -76,6 +76,19 @@ export const AcademicManager = ({ initialData = [], onUpdate }: AcademicFormProp
                                 onChange={(e) => {
                                     const newItems = [...items];
                                     newItems[idx].degree = e.target.value;
+                                    setItems(newItems);
+                                }}
+                                className="w-full rounded-lg bg-[var(--color-pure-white)] p-3 text-[var(--color-jet-black)] border border-[var(--color-ocean-steel)]/30 outline-none focus:border-[var(--color-deep-slate)]"
+                            />
+                        </div>
+                        <div>
+                            <label className="mb-1 block text-xs font-bold uppercase text-[var(--color-deep-slate)]">Date Range</label>
+                            <input
+                                value={item.date_range || ''}
+                                placeholder="e.g. 2020 – 2025"
+                                onChange={(e) => {
+                                    const newItems = [...items];
+                                    newItems[idx].date_range = e.target.value;
                                     setItems(newItems);
                                 }}
                                 className="w-full rounded-lg bg-[var(--color-pure-white)] p-3 text-[var(--color-jet-black)] border border-[var(--color-ocean-steel)]/30 outline-none focus:border-[var(--color-deep-slate)]"

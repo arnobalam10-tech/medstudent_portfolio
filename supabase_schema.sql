@@ -6,6 +6,7 @@ CREATE TABLE education (
   institution TEXT NOT NULL,
   degree TEXT NOT NULL,
   graduation_year TEXT NOT NULL,
+  date_range TEXT DEFAULT '',
   details TEXT,
   order_index INTEGER DEFAULT 0,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()

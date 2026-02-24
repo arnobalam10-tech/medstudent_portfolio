@@ -153,7 +153,7 @@ export default function Home() {
                   type="education"
                   title={edu.degree}
                   organization={edu.institution}
-                  dateRange={edu.graduation_year}
+                  dateRange={edu.date_range || edu.graduation_year}
                   description={edu.details}
                 />
               ))}
