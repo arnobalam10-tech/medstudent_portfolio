@@ -69,7 +69,7 @@ export default function Home() {
   const scholarships = data.awards.filter((a: any) => a.type === 'Scholarship');
 
   // Extracurriculars sub-categories
-  const volunteering = data.extracurriculars.filter((e: any) => e.category === 'Volunteering');
+  const volunteering = data.extracurriculars.filter((e: any) => e.category === 'Volunteering' || e.category === 'Leadership');
   const otherActivities = data.extracurriculars.filter((e: any) => e.category === 'Other');
 
   return (
