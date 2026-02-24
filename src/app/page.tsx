@@ -60,12 +60,12 @@ export default function Home() {
   const hasStats = statsArr.length > 0;
 
   // Research sub-categories
-  const publishedResearch = data.research.filter((r: any) => r.type === 'Published');
-  const ongoingResearch = data.research.filter((r: any) => r.type === 'Ongoing');
-  const presentations = data.research.filter((r: any) => r.type === 'Presentation');
+  const publishedResearch = data.research.filter((r: any) => r.type === 'Published Research');
+  const ongoingResearch = data.research.filter((r: any) => r.type === 'Ongoing Research');
+  const presentations = data.research.filter((r: any) => r.type === 'Paper Presentation');
 
   // Awards sub-categories
-  const licenses = data.awards.filter((a: any) => a.type === 'License');
+  const licenses = data.awards.filter((a: any) => a.type === 'License' || a.type === 'Certification');
   const scholarships = data.awards.filter((a: any) => a.type === 'Scholarship');
 
   // Extracurriculars sub-categories
