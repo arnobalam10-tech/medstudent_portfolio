@@ -15,7 +15,7 @@ export const ResearchManager = ({ initialData = [], onUpdate }: ResearchFormProp
     const [loading, setLoading] = useState(false);
 
     const handleAdd = () => {
-        setItems([...items, { title: '', type: 'Published Research', link: '', status: '', description: '' }]);
+        setItems([...items, { title: '', type: 'Published Research', link: '', status: '', date_published: '', description: '' }]);
     };
 
     const handleSave = async (index: number) => {
@@ -96,6 +96,19 @@ export const ResearchManager = ({ initialData = [], onUpdate }: ResearchFormProp
                                 }}
                                 className="w-full rounded-lg bg-[var(--color-pure-white)] p-3 text-[var(--color-jet-black)] border border-[var(--color-ocean-steel)]/30 outline-none focus:border-[var(--color-deep-slate)]"
                                 placeholder="e.g. In Review, Published"
+                            />
+                        </div>
+                        <div>
+                            <label className="mb-1 block text-xs font-bold uppercase text-[var(--color-deep-slate)]">Date Published</label>
+                            <input
+                                value={item.date_published || ''}
+                                onChange={(e) => {
+                                    const newItems = [...items];
+                                    newItems[idx].date_published = e.target.value;
+                                    setItems(newItems);
+                                }}
+                                className="w-full rounded-lg bg-[var(--color-pure-white)] p-3 text-[var(--color-jet-black)] border border-[var(--color-ocean-steel)]/30 outline-none focus:border-[var(--color-deep-slate)]"
+                                placeholder="e.g. Jan 11, 2026"
                             />
                         </div>
                         <div className="md:col-span-2">

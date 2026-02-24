@@ -208,7 +208,7 @@ export default function Home() {
                   id: 'published',
                   label: 'Published',
                   content: (
-                    <div className="grid gap-6 md:grid-cols-2">
+                    <div className="grid gap-6">
                       {publishedResearch.map((res: any, idx: number) => (
                         <ResearchCard
                           key={res.id || idx}
@@ -216,6 +216,7 @@ export default function Home() {
                           title={res.title}
                           link={res.link}
                           description={res.description}
+                          datePublished={res.date_published}
                         />
                       ))}
                     </div>
@@ -225,7 +226,7 @@ export default function Home() {
                   id: 'ongoing',
                   label: 'Ongoing',
                   content: (
-                    <div className="grid gap-6 md:grid-cols-2">
+                    <div className="grid gap-6">
                       {ongoingResearch.map((res: any, idx: number) => (
                         <ResearchCard
                           key={res.id || idx}
@@ -233,6 +234,7 @@ export default function Home() {
                           title={res.title}
                           status={res.status}
                           description={res.description}
+                          datePublished={res.date_published}
                         />
                       ))}
                     </div>
@@ -242,7 +244,7 @@ export default function Home() {
                   id: 'presentations',
                   label: 'Presentations',
                   content: (
-                    <div className="grid gap-6 md:grid-cols-2">
+                    <div className="grid gap-6">
                       {presentations.map((res: any, idx: number) => (
                         <ResearchCard
                           key={res.id || idx}
@@ -250,6 +252,7 @@ export default function Home() {
                           title={res.title}
                           link={res.link}
                           description={res.description}
+                          datePublished={res.date_published}
                         />
                       ))}
                     </div>

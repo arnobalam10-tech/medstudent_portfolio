@@ -31,6 +31,7 @@ CREATE TABLE research (
   type TEXT NOT NULL, -- Published Research, Ongoing Research, Paper Presentation
   link TEXT,
   status TEXT,
+  date_published TEXT DEFAULT '',
   description TEXT,
   order_index INTEGER DEFAULT 0,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
