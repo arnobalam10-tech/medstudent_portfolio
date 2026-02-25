@@ -274,7 +274,7 @@ export default function Home() {
               label="Recognition"
               title="Awards & Achievements"
               highlightWord="Achievements"
-              subtitle="Certifications, licenses, and recognitions for merit."
+              subtitle="Certifications, licenses, and recognitions."
             />
             <Tabs
               tabs={[
@@ -330,38 +330,7 @@ export default function Home() {
               highlightWord="Curriculars"
               subtitle="Beyond the classroom: Volunteering, Photography, and more."
             />
-            <Tabs
-              tabs={[
-                ...(volunteering.length > 0 ? [{
-                  id: 'volunteering',
-                  label: 'Volunteering',
-                  content: (
-                    <VolunteeringShowcase items={volunteering} />
-                  )
-                }] : []),
-                ...(leadership.length > 0 ? [{
-                  id: 'leadership',
-                  label: 'Leadership',
-                  content: (
-                    <VolunteeringShowcase items={leadership} />
-                  )
-                }] : []),
-                ...(otherActivities.length > 0 ? [{
-                  id: 'others',
-                  label: 'Other Activities',
-                  content: (
-                    <div className="grid gap-6 md:grid-cols-3">
-                      {otherActivities.map((ext: any, idx: number) => (
-                        <GlassCard key={ext.id || idx} className="text-center">
-                          <h4 className="text-lg font-semibold mb-2" style={{ color: 'var(--foreground)' }}>{ext.title}</h4>
-                          <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>{ext.description}</p>
-                        </GlassCard>
-                      ))}
-                    </div>
-                  )
-                }] : []),
-              ]}
-            />
+            <VolunteeringShowcase items={data.extracurriculars} />
           </div>
         </section>
       )}

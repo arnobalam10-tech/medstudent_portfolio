@@ -2,7 +2,6 @@
 
 import { GlassCard } from "./GlassCard";
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
 
 interface VolunteeringItemProps {
     title: string;
@@ -39,22 +38,6 @@ export const VolunteeringShowcase = ({ items }: { items: VolunteeringItemProps[]
                         onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'var(--shadow-md)'}
                     >
                         <div className="p-8">
-                            {/* Label Badge */}
-                            <div
-                                className="mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5"
-                                style={{
-                                    borderColor: 'rgba(54,86,95,0.20)',
-                                    background: 'rgba(226,240,240,0.5)',
-                                }}
-                            >
-                                <Heart size={12} style={{ color: 'var(--accent)' }} />
-                                <span
-                                    className="text-xs uppercase tracking-[0.12em] font-medium"
-                                    style={{ color: 'var(--accent)', fontFamily: 'var(--font-jetbrains)' }}
-                                >
-                                    {item.category || 'Volunteering'}
-                                </span>
-                            </div>
 
                             <h3
                                 className="mb-2 text-xl font-semibold leading-tight tracking-[-0.01em] transition-colors duration-200"
